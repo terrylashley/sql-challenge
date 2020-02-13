@@ -23,7 +23,7 @@ to_date DATE
 
 dept_manager
 -
-dept_no VARCHAR(30) FK
+dept_no VARCHAR(30) FK >- departments.dept_no
 emp_no INT FK >- employees.emp_no
 from_date DATE
 to_date DATE

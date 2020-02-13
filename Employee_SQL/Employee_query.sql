@@ -5,14 +5,10 @@ FULL OUTER JOIN salaries s ON e.emp_no = s.emp_no
 ORDER BY 1 ;
 
 
--- Create a Query consisting of the Manager of each department with department number, department name, the managers employee number
--- last name, first name, alon with their start and end employment dates
+-- Manager of each department with (department number, department name, the managers employee number
+-- last name, first name, along with their start and end employment dates)
 
-select *   --department number, department name
-FROM departments;
-
-select *   --managers employee number, from date, to date
-FROM dept_manager;
-
-select *   -- employees last name, first name
-FROM employees;
+select d.dept_no, d.dept_name, m.emp_no, e.last_name, e.first_name, m.from_date, m.to_date
+FROM departments d
+LEFT JOIN dept_manager m ON d.dept_no = m.dept_no
+LEFT JOIN employees e ON e.emp_no = m.emp_no;
